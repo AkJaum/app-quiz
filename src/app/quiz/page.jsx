@@ -7,11 +7,11 @@ export default function Quiz() {
     const searchParams = useSearchParams();
     const numPlayers = Number(searchParams.get("numPlayers") || 2);
     const playerNames = (searchParams.get("names") || "")
-    .split(",")
-    .filter(Boolean);
+        .split(",")
+        .filter(Boolean);
 
     useEffect(() => {
-    console.log("Jogadores:", playerNames);
+        console.log("Jogadores:", playerNames);
     }, [playerNames]);
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -76,7 +76,7 @@ export default function Quiz() {
         }
     };
 
-    const currentPlayer = playerNames[currentQuestion % playerNames.length];
+    const currentPlayerName = playerNames[turn] || `Jogador ${turn + 1}`;
 
     if (shuffledQuestions.length === 0) return <p>Carregando perguntas...</p>;
 
@@ -87,7 +87,7 @@ export default function Quiz() {
                 <ul>
                     {scores.map((score, idx) => (
                         <li key={idx} className="mb-2">
-                            Jogador {idx + 1}: {score} pontos
+                            {playerNames[idx] || `Jogador ${idx + 1}`}: {score} pontos
                         </li>
                     ))}
                 </ul>
@@ -97,7 +97,7 @@ export default function Quiz() {
 
     return (
         <main>
-            <h1 className="text-[35px] pl-5 pt-2 pb-10">{playerNames[currentPlayer] || `${currentPlayer}`}, é sua vez!</h1>
+            <h1 className="text-[35px] pl-5 pt-2 pb-10">{currentPlayerName}, é sua vez!</h1>
 
             {phase === "pesca" && (
                 <div className="pl-5">
