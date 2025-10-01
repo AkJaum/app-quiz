@@ -1,0 +1,106 @@
+/* Home.css */
+
+.home-bg {
+  background-image: url('/Imagens/sim.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.start-button {
+  background-color: #1d4ed8; /* Azul tailwind */
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.start-button:hover {
+  background-color: #1e40af;
+  transform: scale(1.1);
+}
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.popup-box {
+  background-color: #1d4ed8;
+  color: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  width: 400px;
+  text-align: center;
+}
+
+.popup-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.popup-label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.popup-input-number {
+  margin-left: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: white;
+}
+
+.popup-inputs {
+  margin-bottom: 1rem;
+}
+
+.popup-input-text {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #fbbf24;
+  background-color: transparent;
+  color: white;
+}
+
+.popup-start-button {
+  background-color: #16a34a; /* Verde */
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.popup-start-button:hover {
+  background-color: #15803d;
+  transform: scale(1.1);
+}

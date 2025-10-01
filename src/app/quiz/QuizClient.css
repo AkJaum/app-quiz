@@ -1,0 +1,129 @@
+/* QuizClient.css */
+
+nav {
+    width: 100%;
+    height: 80px;
+    background-color: gold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back {
+    width: 30px;
+    height: 25px;
+    margin-left: 20px;
+}
+
+.quiz-container {
+  padding: 1.5rem;
+}
+
+.quiz-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.quiz-list {
+  list-style: none;
+  padding: 0;
+}
+
+.quiz-list-item {
+  margin-bottom: 0.5rem;
+}
+
+.quiz-player-turn {
+  font-size: 2.2rem;
+  padding-bottom: 0.5rem;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+.quiz-fishing-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4rem;
+}
+
+.quiz-fishing-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.quiz-ball-btn {
+  padding: 0.5rem 1rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.quiz-ball-btn:hover {
+  transform: scale(1.1);
+  background-color: #222;
+}
+
+.question-box {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 4rem;
+}
+
+.quiz-question {
+  text-align: center;
+  font-size: 1.875rem;
+  padding-top: 1.875rem;
+  font-family: sans-serif;
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  padding-top: 2rem;
+  padding: 2rem;
+  justify-items: center;
+}
+
+.quiz-option {
+  background-color: #1d4ed8;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 50%;
+  padding-top: 1rem;
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.quiz-option:hover {
+  transform: scale(1.05);
+  background-color: #1e40af;
+}
+
+.quiz-score-section {
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4rem;
+  text-align: center;
+}
+
+.quiz-score-list {
+  list-style: none;
+  padding: 0;
+}

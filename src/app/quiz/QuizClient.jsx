@@ -3,6 +3,9 @@
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { questions as allQuestions } from "../data/questions";
+import "./QuizClient.css";
+import Image from "next/image";
+import Link from "next/link"
 
 export default function QuizClient() {
   const searchParams = useSearchParams();
@@ -16,6 +19,7 @@ export default function QuizClient() {
   const [ball, setBall] = useState(null);
   const [finished, setFinished] = useState(false);
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
+  const [dica, setDica] = useState(0);
 
   useEffect(() => {
     const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
@@ -34,19 +38,25 @@ export default function QuizClient() {
       nextTurn();
     } else if (chosenBall === "red") {
       alert(`Jogador ${turn + 1} pescou 🔴 e vai responder sem dica!`);
-      setPhase("pergunta");
+      setPhase("perguntad");
+      setDica(1);
     } else {
       alert(`Jogador ${turn + 1} pescou 🟢 e vai responder com dica!`);
       setPhase("pergunta");
     }
   };
 
-  const checkAnswer = (selected) => {
+  const checkAnswer = (selected, chosenBall) => {
     const correct = shuffledQuestions[currentQuestion].answer;
 
-    if (selected === correct) {
+    if (selected === correct && chosenBall === "red") {
       const newScores = [...scores];
-      newScores[turn] += 1;
+      newScores[turn] += 40;
+      setScores(newScores);
+      alert("Resposta correta!");
+    } else if (selected === correct && chosenBall === "green") {
+      const newScores = [...scores];
+      newScores[turn] += 20;
       setScores(newScores);
       alert("Resposta correta!");
     } else {
@@ -67,6 +77,7 @@ export default function QuizClient() {
       setCurrentQuestion(nextQuestion);
       setTurn(nextPlayer);
       setBall(null);
+      setDica(0);
     }
   };
 
@@ -76,11 +87,11 @@ export default function QuizClient() {
 
   if (finished) {
     return (
-      <div className="p-6">
-        <h2 className="text-2xl font-bold mb-4">Fim do Quiz</h2>
-        <ul>
+      <div className="quiz-container">
+        <h2 className="quiz-title">Fim do Quiz</h2>
+        <ul className="quiz-list">
           {scores.map((score, idx) => (
-            <li key={idx} className="mb-2">
+            <li key={idx} className="quiz-list-item">
               {playerNames[idx] || `Jogador ${idx + 1}`}: {score} pontos
             </li>
           ))}
@@ -91,28 +102,30 @@ export default function QuizClient() {
 
   return (
     <main>
-      <h1 className="text-[35px] pl-5 pt-2 pb-10">{currentPlayerName}, é sua vez!</h1>
+      <nav>
+        <Link href="/">
+          <Image
+            className="back"
+            alt="Voltar"
+            src="/Imagens/back.png"
+            width={50}
+            height={10}
+          />
+        </Link>
+        <h1 className="quiz-player-turn">{currentPlayerName}, é sua vez!</h1>
+      </nav>
 
       {phase === "pesca" && (
-        <div className="pl-5">
-          <p>Qual bola você pescou?:</p>
-          <div className="flex gap-4 mt-4">
-            <button
-              onClick={() => handleFishing("black")}
-              className="px-4 py-2 bg-black text-white rounded"
-            >
+        <div className="quiz-fishing-section">
+          <h1>Qual bola você pescou?:</h1>
+          <div className="quiz-fishing-buttons">
+            <button onClick={() => handleFishing("black")} className="quiz-ball-btn">
               ⚫ Preta
             </button>
-            <button
-              onClick={() => handleFishing("red")}
-              className="px-4 py-2 bg-black text-white rounded"
-            >
+            <button onClick={() => handleFishing("red")} className="quiz-ball-btn">
               🔴 Vermelha
             </button>
-            <button
-              onClick={() => handleFishing("green")}
-              className="px-4 py-2 bg-black text-white rounded"
-            >
+            <button onClick={() => handleFishing("green")} className="quiz-ball-btn">
               🟢 Verde
             </button>
           </div>
@@ -120,17 +133,17 @@ export default function QuizClient() {
       )}
 
       {phase === "pergunta" && (
-        <div>
-          <h1 className="text-center text-[30px] pt-[30px] font-sans">
+        <div className="question-box">
+          <h1 className="quiz-question">
             {shuffledQuestions[currentQuestion].question}
           </h1>
 
-          <div className="grid grid-cols-2 grid-rows-2 gap-5 p-6">
+          <div className="quiz-options">
             {shuffledQuestions[currentQuestion].options.map((opt, idx) => (
               <p
                 key={idx}
-                onClick={() => checkAnswer(opt)}
-                className="bg-blue-700 rounded-2xl p-6 text-white font-sans cursor-pointer"
+                onClick={() => checkAnswer(opt, ball)}
+                className="quiz-option"
               >
                 {["A", "B", "C", "D"][idx]}: {opt}
               </p>
@@ -139,8 +152,32 @@ export default function QuizClient() {
         </div>
       )}
 
-      <div className="mt-6">
-        <ul>
+      {phase === "perguntad" && (
+        <div className="question-box">
+          <h1 className="quiz-question">
+            {shuffledQuestions[currentQuestion].question}
+          </h1>
+
+          <div className="quiz-options">
+            {shuffledQuestions[currentQuestion].options.map((opt, idx) => (
+              <p
+                key={idx}
+                onClick={() => checkAnswer(opt, ball)}
+                className="quiz-option"
+              >
+                {["A", "B", "C", "D"][idx]}: {opt}
+              </p>
+            ))}
+          </div>
+          <div className="quiz-dica">
+            <Image/>
+          </div>
+        </div>
+      )}
+
+      <div className="quiz-score-section">
+        <h2>Ranking</h2>
+        <ul className="quiz-score-list">
           {scores.map((score, idx) => (
             <li key={idx}>
               {playerNames[idx] || `Jogador ${idx + 1}`}: {score} pontos
