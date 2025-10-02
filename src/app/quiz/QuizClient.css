@@ -99,7 +99,10 @@ nav {
   border-radius: 1rem;
   padding: 2rem;
   width: 50%;
+  display: flex;
+  justify-content: center;
   padding-top: 1rem;
+  align-items: center;
   text-align: center;
   color: white;
   font-family: sans-serif;

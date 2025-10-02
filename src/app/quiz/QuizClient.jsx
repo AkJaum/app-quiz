@@ -34,14 +34,11 @@ export default function QuizClient() {
     setBall(chosenBall);
 
     if (chosenBall === "black") {
-      alert(`Jogador ${turn + 1} pescou ⚫ e perdeu a questão!`);
       nextTurn();
     } else if (chosenBall === "red") {
-      alert(`Jogador ${turn + 1} pescou 🔴 e vai responder sem dica!`);
       setPhase("perguntad");
       setDica(1);
     } else {
-      alert(`Jogador ${turn + 1} pescou 🟢 e vai responder com dica!`);
       setPhase("pergunta");
     }
   };

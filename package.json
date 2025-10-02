@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "main": "electron/main.js",
-    "scripts": {
-    "dev": "concurrently \"npm run next\" \"npm:electron\"",
+  "scripts": {
+    "dev": "concurrently \"npm run next\" \"npm run electron:dev\"",
     "next": "next dev",
     "build": "next build",
-    "electron": "wait-on http://localhost:3000 && electron .",
-    "start": "next start && next build && next export && electron-builder"
+    "electron:dev": "wait-on http://localhost:3000 && electron .",
+    "electron:prod": "electron .",
+    "dist": "npm run build && electron-builder"
   },
   "dependencies": {
     "next": "15.5.4",

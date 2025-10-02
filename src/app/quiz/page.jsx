@@ -1,5 +1,9 @@
-export default function QuizPage() {
-  return <QuizClient />;
-}
+"use client";
 
-import QuizClient from './QuizClient';
+import dynamic from 'next/dynamic';
+
+const QuizClient = dynamic(() => import('./QuizClient'), { ssr: false });
+
+export default function QuizPage() {
+  return <QuizClient/>;
+}
