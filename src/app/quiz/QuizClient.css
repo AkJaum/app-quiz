@@ -48,6 +48,7 @@ nav {
   align-items: center;
   justify-content: center;
   padding-top: 4rem;
+  font-size: 1.5rem;
 }
 
 .quiz-fishing-buttons {
@@ -83,6 +84,17 @@ nav {
   font-size: 1.875rem;
   padding-top: 1.875rem;
   font-family: sans-serif;
+}
+
+.quiz-dica {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  cursor: pointer;
+  position: relative;
+  font-size: 1.5rem;
 }
 
 .quiz-options {

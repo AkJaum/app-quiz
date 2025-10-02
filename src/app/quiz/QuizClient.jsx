@@ -20,6 +20,7 @@ export default function QuizClient() {
   const [finished, setFinished] = useState(false);
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
   const [dica, setDica] = useState(0);
+  const [visivel, setVisivel] = useState(false);
 
   useEffect(() => {
     const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
@@ -36,10 +37,10 @@ export default function QuizClient() {
     if (chosenBall === "black") {
       nextTurn();
     } else if (chosenBall === "red") {
+      setPhase("pergunta");
+    } else {
       setPhase("perguntad");
       setDica(1);
-    } else {
-      setPhase("pergunta");
     }
   };
 
@@ -78,6 +79,10 @@ export default function QuizClient() {
     }
   };
 
+  const ft_dica = () => {
+  setVisivel(!visivel);
+  };
+
   const currentPlayerName = playerNames[turn] || `Jogador ${turn + 1}`;
 
   if (shuffledQuestions.length === 0) return <p>Carregando perguntas...</p>;
@@ -114,7 +119,7 @@ export default function QuizClient() {
 
       {phase === "pesca" && (
         <div className="quiz-fishing-section">
-          <h1>Qual bola você pescou?:</h1>
+          <h1>Qual bola você pescou?</h1>
           <div className="quiz-fishing-buttons">
             <button onClick={() => handleFishing("black")} className="quiz-ball-btn">
               ⚫ Preta
@@ -155,6 +160,19 @@ export default function QuizClient() {
             {shuffledQuestions[currentQuestion].question}
           </h1>
 
+            <div className="quiz-dica">
+            <Image
+            onClick={ft_dica}
+            src={"/Imagens/dica.png"}
+            width={50}
+            height={50}
+            alt="Dica"
+            />
+            {visivel && (
+              <p className="quiz-dica-text">{shuffledQuestions[currentQuestion].hint}</p>
+            )}
+          </div>
+
           <div className="quiz-options">
             {shuffledQuestions[currentQuestion].options.map((opt, idx) => (
               <p
@@ -165,9 +183,6 @@ export default function QuizClient() {
                 {["A", "B", "C", "D"][idx]}: {opt}
               </p>
             ))}
-          </div>
-          <div className="quiz-dica">
-            <Image/>
           </div>
         </div>
       )}

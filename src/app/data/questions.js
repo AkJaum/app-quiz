@@ -10,7 +10,8 @@ export const questions = [
       "Criar oportunidades mesmo diante de incertezas",
       "Priorizar estabilidade acima de tudo"
     ],
-    answer: "Criar oportunidades mesmo diante de incertezas"
+    answer: "Criar oportunidades mesmo diante de incertezas",
+    hint: "Pense em quem enxerga chance de negócio onde outros veem problemas."
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ export const questions = [
       "Garantir lucro imediato",
       "Pagar funcionários antigos"
     ],
-    answer: "Custear despesas iniciais e estruturar a operação"
+    answer: "Custear despesas iniciais e estruturar a operação",
+    hint: "Ele serve para manter a empresa de pé antes que o faturamento aconteça."
   },
   {
     id: 3,
@@ -32,7 +34,8 @@ export const questions = [
       "Calcular impostos",
       "Medir riscos e identificar oportunidades"
     ],
-    answer: "Medir riscos e identificar oportunidades"
+    answer: "Medir riscos e identificar oportunidades",
+    hint: "É o estudo que ajuda a entender clientes e concorrentes."
   },
   {
     id: 4,
@@ -43,7 +46,8 @@ export const questions = [
       "Não possui clientes",
       "Opera apenas offline"
     ],
-    answer: "Atende a mesma necessidade com soluções diferentes"
+    answer: "Atende a mesma necessidade com soluções diferentes",
+    hint: "Pense em pizza x hambúrguer: produtos diferentes, mas satisfazem a mesma fome."
   },
   {
     id: 5,
@@ -54,7 +58,8 @@ export const questions = [
       "Comissão por venda",
       "Embalagens por produto"
     ],
-    answer: "Aluguel do espaço da empresa"
+    answer: "Aluguel do espaço da empresa",
+    hint: "É o gasto que não muda, mesmo que você venda mais ou menos."
   },
   {
     id: 6,
@@ -65,7 +70,8 @@ export const questions = [
       "Indica quanto sobra depois dos custos",
       "Representa capital investido"
     ],
-    answer: "Indica quanto sobra depois dos custos"
+    answer: "Indica quanto sobra depois dos custos",
+    hint: "Não adianta vender muito se os gastos também forem altos."
   },
   {
     id: 7,
@@ -76,7 +82,8 @@ export const questions = [
       "Reduzir custos fixos",
       "Expandir localmente"
     ],
-    answer: "Crescer sem aumentar proporcionalmente os custos"
+    answer: "Crescer sem aumentar proporcionalmente os custos",
+    hint: "Pense em um app que cresce em usuários sem precisar contratar milhares de pessoas."
   },
   {
     id: 8,
@@ -87,7 +94,8 @@ export const questions = [
       "Contar toda a história da empresa",
       "Resumir a ideia e convencer rapidamente"
     ],
-    answer: "Resumir a ideia e convencer rapidamente"
+    answer: "Resumir a ideia e convencer rapidamente",
+    hint: "Imagine que você tem só 1 minuto para vender a sua ideia."
   },
   {
     id: 9,
@@ -98,7 +106,8 @@ export const questions = [
       "Escola pública",
       "Biblioteca comunitária"
     ],
-    answer: "Aplicativo digital em rápido crescimento"
+    answer: "Aplicativo digital em rápido crescimento",
+    hint: "É uma empresa jovem, inovadora e com alto potencial de escala."
   },
   {
     id: 10,
@@ -109,7 +118,8 @@ export const questions = [
       "Apenas investimento inicial",
       "Controle de entradas e saídas de dinheiro"
     ],
-    answer: "Controle de entradas e saídas de dinheiro"
+    answer: "Controle de entradas e saídas de dinheiro",
+    hint: "É como o extrato bancário da empresa."
   },
   {
     id: 11,
@@ -120,7 +130,8 @@ export const questions = [
       "Copia concorrentes",
       "Mantém processos antigos"
     ],
-    answer: "Cria algo totalmente novo que muda o mercado"
+    answer: "Cria algo totalmente novo que muda o mercado",
+    hint: "Smartphones mudaram o mercado de celulares de forma radical."
   },
   {
     id: 12,
@@ -131,7 +142,8 @@ export const questions = [
       "Escolher cores de marca",
       "Calcular imposto"
     ],
-    answer: "Organizar metas, estratégias e estrutura operacional"
+    answer: "Organizar metas, estratégias e estrutura operacional",
+    hint: "É como o mapa do caminho que o negócio vai seguir."
   },
   {
     id: 13,
@@ -142,7 +154,8 @@ export const questions = [
       "Franquias",
       "Empresa pública"
     ],
-    answer: "Microempreendedor Individual"
+    answer: "Microempreendedor Individual",
+    hint: "É o modelo de formalização simplificada para pequenos negócios."
   },
   {
     id: 14,
@@ -153,7 +166,8 @@ export const questions = [
       "Não precisa emitir nota fiscal",
       "Ter sócios automaticamente"
     ],
-    answer: "Formalização simples com impostos reduzidos"
+    answer: "Formalização simples com impostos reduzidos",
+    hint: "O regime foi criado justamente para facilitar a vida do pequeno empreendedor."
   },
   {
     id: 15,
@@ -164,7 +178,8 @@ export const questions = [
       "Alcançar clientes por canais online",
       "Treinar funcionários"
     ],
-    answer: "Alcançar clientes por canais online"
+    answer: "Alcançar clientes por canais online",
+    hint: "Envolve redes sociais, anúncios online e e-mail marketing."
   },
   {
     id: 16,
@@ -175,7 +190,8 @@ export const questions = [
       "Aumenta contatos que geram oportunidades",
       "Não influencia no crescimento do negócio"
     ],
-    answer: "Aumenta contatos que geram oportunidades"
+    answer: "Aumenta contatos que geram oportunidades",
+    hint: "Quem você conhece pode abrir portas que sozinho seriam mais difíceis."
   },
   {
     id: 17,
@@ -186,7 +202,8 @@ export const questions = [
       "Criar logotipo",
       "Controlar estoque"
     ],
-    answer: "Testar ideias com menor custo"
+    answer: "Testar ideias com menor custo",
+    hint: "É uma versão inicial e simplificada do produto."
   },
   {
     id: 18,
@@ -197,7 +214,8 @@ export const questions = [
       "Apenas fornecedores",
       "Concorrentes"
     ],
-    answer: "Grupo específico que você quer atingir"
+    answer: "Grupo específico que você quer atingir",
+    hint: "Definir para quem você vende aumenta a eficácia do marketing."
   },
   {
     id: 19,
@@ -208,7 +226,8 @@ export const questions = [
       "Conquistar só novos clientes",
       "Fazer clientes voltarem"
     ],
-    answer: "Fazer clientes voltarem"
+    answer: "Fazer clientes voltarem",
+    hint: "É mais barato manter quem já comprou do que atrair novos."
   },
   {
     id: 20,
@@ -219,7 +238,8 @@ export const questions = [
       "Diminuir qualidade para reduzir custo",
       "Copiar concorrentes"
     ],
-    answer: "Destacar seu produto frente à concorrência"
+    answer: "Destacar seu produto frente à concorrência",
+    hint: "É o que faz o cliente escolher você em vez do outro."
   },
   {
     id: 21,
@@ -230,7 +250,8 @@ export const questions = [
       "Ajustar modelo ou estratégia quando algo não funciona",
       "Aumentar funcionários"
     ],
-    answer: "Ajustar modelo ou estratégia quando algo não funciona"
+    answer: "Ajustar modelo ou estratégia quando algo não funciona",
+    hint: "É como mudar a direção do navio sem abandonar a viagem."
   },
   {
     id: 22,
@@ -241,7 +262,8 @@ export const questions = [
       "Modelo de vendas pública",
       "Medida de valor padrão"
     ],
-    answer: "Produto mínimo viável"
+    answer: "Produto mínimo viável",
+    hint: "É a versão mais simples possível para validar a ideia."
   },
   {
     id: 23,
@@ -252,7 +274,8 @@ export const questions = [
       "Total de despesas fixas",
       "Receita anual"
     ],
-    answer: "Momento em que a empresa cobre custos, sem lucro"
+    answer: "Momento em que a empresa cobre custos, sem lucro",
+    hint: "É quando as contas fecham no zero a zero."
   },
   {
     id: 24,
@@ -263,7 +286,8 @@ export const questions = [
       "Registrar impostos",
       "Observar práticas de outros negócios para aprender"
     ],
-    answer: "Observar práticas de outros negócios para aprender"
+    answer: "Observar práticas de outros negócios para aprender",
+    hint: "É comparar-se com os melhores para melhorar."
   },
   {
     id: 25,
@@ -274,7 +298,8 @@ export const questions = [
       "Lucro líquido mensal",
       "Participação acionária"
     ],
-    answer: "Retorno sobre investimento"
+    answer: "Retorno sobre investimento",
+    hint: "Mostra se o que você gastou valeu a pena financeiramente."
   },
   {
     id: 26,
@@ -285,7 +310,8 @@ export const questions = [
       "Taxa de clientes perdidos",
       "Receita anual"
     ],
-    answer: "Taxa de clientes perdidos"
+    answer: "Taxa de clientes perdidos",
+    hint: "É o oposto da fidelização: quando clientes deixam de usar seu produto."
   },
   {
     id: 27,
@@ -296,7 +322,8 @@ export const questions = [
       "Criar redes sociais",
       "Fazer logotipo"
     ],
-    answer: "Testar se clientes querem realmente o produto"
+    answer: "Testar se clientes querem realmente o produto",
+    hint: "Serve para evitar gastar com algo que ninguém quer."
   },
   {
     id: 28,
@@ -307,7 +334,8 @@ export const questions = [
       "Concorrência direta",
       "Rede de supermercados"
     ],
-    answer: "Conjunto de empresas e pessoas que colaboram em novos negócios"
+    answer: "Conjunto de empresas e pessoas que colaboram em novos negócios",
+    hint: "É como uma rede de apoio que acelera a criação de soluções novas."
   },
   {
     id: 29,
@@ -318,7 +346,8 @@ export const questions = [
       "Calcular lucro mensal",
       "Traçar metas, ações e recursos para atingir objetivos"
     ],
-    answer: "Traçar metas, ações e recursos para atingir objetivos"
+    answer: "Traçar metas, ações e recursos para atingir objetivos",
+    hint: "É o plano mestre para chegar onde a empresa deseja."
   },
   {
     id: 30,
@@ -329,6 +358,7 @@ export const questions = [
       "Criar produtos descartáveis",
       "Evitar pagar impostos"
     ],
-    answer: "Atuar considerando impacto social, ambiental e econômico"
+    answer: "Atuar considerando impacto social, ambiental e econômico",
+    hint: "Vai além do lucro: pensa no planeta e na sociedade também."
   }
 ];
