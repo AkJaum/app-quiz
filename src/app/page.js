@@ -9,7 +9,7 @@ export default function Home() {
   const router = useRouter();
   const [visivel, setVisivel] = useState(false);
   const [numPlayers, setNumPlayers] = useState(2);
-  const [names, setNames] = useState([]);
+  const [names, setNames] = useState(Array(2).fill(""));
   const [start, setStart] = useState(false);
 
   const handleNumPlayers = (e) => {
