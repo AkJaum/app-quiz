@@ -69,7 +69,7 @@ nav {
   align-items: center;
   justify-content: center;
   padding-top: 3rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #333333;
   font-family: 'Fredoka', sans-serif;
   gap: 1rem;
@@ -105,8 +105,7 @@ nav {
   width: 100%;
   height: auto;
   margin: 0 auto;
-  padding-top: 4rem;
-  
+  padding-top: 3rem;
 }
 
 .quiz-options {
@@ -122,14 +121,16 @@ nav {
   text-align: center;
   font-size: 1.875rem;
   color: white;
-  font-family: sans-serif;
+  font-weight: bold;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 2rem;
   background: #2C5FB8;
   backdrop-filter: blur(10px);
   padding: 15px 25px;
   border-radius: 12px;
   margin: 30px auto;
-  min-width: 300px;
-  max-width: 50%;
+  min-width: 10%;
+  max-width: 40%;
 }
 
 .quiz-dica {
@@ -140,6 +141,12 @@ nav {
   margin-top: 1rem;
   cursor: pointer;
   position: relative;
+  font-size: 1.5rem;
+}
+
+.quiz-dica-text {
+  font-weight: bold;
+  font-family: 'Fredoka', sans-serif;
   font-size: 1.5rem;
 }
 
@@ -156,7 +163,8 @@ nav {
   align-items: center;
   text-align: center;
   color: white;
-  font-family: sans-serif;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.2s ease;
 }

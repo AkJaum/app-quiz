@@ -143,7 +143,6 @@ export default function QuizClient() {
             height={10}
           />
         </Link>
-        <button onClick={finishGame}>FINALIZAR QUIZ</button>
         {phase === "pesca" && (
           <div className="quiz-fishing-section">
             <h1 className="quiz-player-turn">{currentPlayerName}, é sua vez!</h1>
