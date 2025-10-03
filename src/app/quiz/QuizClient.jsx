@@ -1,6 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { questions as allQuestions } from "../data/questions";
 import "./QuizClient.css";
@@ -80,31 +81,59 @@ export default function QuizClient() {
   };
 
   const ft_dica = () => {
-  setVisivel(!visivel);
+    setVisivel(!visivel);
   };
+
+  const finishGame = () => {
+    setFinished(true);
+  };
+
+  const router = useRouter();
+
+  const restartGame = () => {
+    router.refresh();
+    setFinished(false);
+    setCurrentQuestion(0);
+    setScores(Array(numPlayers).fill(0));
+    setTurn(0);
+    setPhase("pesca");
+    setBall(null);
+    setDica(0);
+  };
+
+  useEffect(() => {
+    if (finished) {
+      setPhase("fim");
+    }
+  }, [finished]);
+
+  useEffect(() => {
+    const someoneWon = scores.some(score => score >= 100);
+    if (someoneWon && !finished) {
+      setFinished(true);
+    }
+  }, [scores, finished]);
 
   const currentPlayerName = playerNames[turn] || `Jogador ${turn + 1}`;
 
   if (shuffledQuestions.length === 0) return <p>Carregando perguntas...</p>;
 
-  if (finished) {
-    return (
-      <div className="quiz-container">
-        <h2 className="quiz-title">Fim do Quiz</h2>
-        <ul className="quiz-list">
-          {scores.map((score, idx) => (
-            <li key={idx} className="quiz-list-item">
-              {playerNames[idx] || `Jogador ${idx + 1}`}: {score} pontos
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
-
   return (
     <main>
-      <nav>
+      <div className="background-geral">
+
+        <nav>
+          <div className="nav-div">
+            <Image
+              className="eyes"
+              src={"/Imagens/minionseyes.png"}
+              width={125}
+              height={50}
+              alt="eyes"
+            />
+            <h1>Empreendendo Minions</h1>
+          </div>
+        </nav>
         <Link href="/">
           <Image
             className="back"
@@ -114,88 +143,117 @@ export default function QuizClient() {
             height={10}
           />
         </Link>
-        <h1 className="quiz-player-turn">{currentPlayerName}, é sua vez!</h1>
-      </nav>
-
-      {phase === "pesca" && (
-        <div className="quiz-fishing-section">
-          <h1>Qual bola você pescou?</h1>
-          <div className="quiz-fishing-buttons">
-            <button onClick={() => handleFishing("black")} className="quiz-ball-btn">
-              ⚫ Preta
-            </button>
-            <button onClick={() => handleFishing("red")} className="quiz-ball-btn">
-              🔴 Vermelha
-            </button>
-            <button onClick={() => handleFishing("green")} className="quiz-ball-btn">
-              🟢 Verde
-            </button>
+        <button onClick={finishGame}>FINALIZAR QUIZ</button>
+        {phase === "pesca" && (
+          <div className="quiz-fishing-section">
+            <h1 className="quiz-player-turn">{currentPlayerName}, é sua vez!</h1>
+            <h1>Qual bola você pescou? 🎣</h1>
+            <div className="quiz-fishing-buttons">
+              <button onClick={() => handleFishing("black")} className="quiz-ball-btn">
+                ⚫
+              </button>
+              <button onClick={() => handleFishing("red")} className="quiz-ball-btn">
+                🔴
+              </button>
+              <button onClick={() => handleFishing("green")} className="quiz-ball-btn">
+                🟢
+              </button>
+            </div>
           </div>
-        </div>
-      )}
 
-      {phase === "pergunta" && (
-        <div className="question-box">
-          <h1 className="quiz-question">
-            {shuffledQuestions[currentQuestion].question}
-          </h1>
+        )}
 
-          <div className="quiz-options">
-            {shuffledQuestions[currentQuestion].options.map((opt, idx) => (
-              <p
-                key={idx}
-                onClick={() => checkAnswer(opt, ball)}
-                className="quiz-option"
-              >
-                {["A", "B", "C", "D"][idx]}: {opt}
-              </p>
-            ))}
+        {phase === "pergunta" && (
+          <div className="question-box">
+            <h1 className="quiz-player-turn">{currentPlayerName}, é sua vez!</h1>
+            <h1 className="quiz-question">
+              {shuffledQuestions[currentQuestion].question}
+            </h1>
+
+            <div className="quiz-options">
+              {shuffledQuestions[currentQuestion].options.map((opt, idx) => (
+                <p
+                  key={idx}
+                  onClick={() => checkAnswer(opt, ball)}
+                  className="quiz-option"
+                >
+                  {["A", "B", "C", "D"][idx]}: {opt}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {phase === "perguntad" && (
-        <div className="question-box">
-          <h1 className="quiz-question">
-            {shuffledQuestions[currentQuestion].question}
-          </h1>
+
+        {phase === "perguntad" && (
+          <div className="question-box">
+            <h1 className="quiz-player-turn">{currentPlayerName}, é sua vez!</h1>
+            <h1 className="quiz-question">
+              {shuffledQuestions[currentQuestion].question}
+            </h1>
 
             <div className="quiz-dica">
-            <Image
-            onClick={ft_dica}
-            src={"/Imagens/dica.png"}
-            width={50}
-            height={50}
-            alt="Dica"
-            />
-            {visivel && (
-              <p className="quiz-dica-text">{shuffledQuestions[currentQuestion].hint}</p>
-            )}
-          </div>
+              <Image
+                onClick={ft_dica}
+                src={"/Imagens/dica.png"}
+                width={50}
+                height={50}
+                alt="Dica"
+              />
+              {visivel && (
+                <p className="quiz-dica-text">{shuffledQuestions[currentQuestion].hint}</p>
+              )}
+            </div>
 
-          <div className="quiz-options">
-            {shuffledQuestions[currentQuestion].options.map((opt, idx) => (
-              <p
-                key={idx}
-                onClick={() => checkAnswer(opt, ball)}
-                className="quiz-option"
-              >
-                {["A", "B", "C", "D"][idx]}: {opt}
-              </p>
-            ))}
+            <div className="quiz-options">
+              {shuffledQuestions[currentQuestion].options.map((opt, idx) => (
+                <p
+                  key={idx}
+                  onClick={() => checkAnswer(opt, ball)}
+                  className="quiz-option"
+                >
+                  {["A", "B", "C", "D"][idx]}: {opt}
+                </p>
+              ))}
+            </div>
           </div>
+        )}
+
+        {phase === "fim" && (
+          <div className="quiz-end-section">
+            <h1 className="quiz-end">Fim do Quiz!</h1>
+            <button onClick={restartGame} className="quiz-restart-button">
+              Reiniciar Quiz
+            </button>
+            <Link href="/">
+            <button className="quiz-restart-button">
+              Voltar para a tela inicial
+            </button>
+            </Link>
+          </div>
+        )}
+
+        <div className="quiz-score-section">
+          <h2>Ranking</h2>
+          <ul className="quiz-score-list">
+            {[...scores]
+              .map((score, idx) => ({
+                name: playerNames[idx] || `Jogador ${idx + 1}`,
+                score,
+              }))
+              .sort((a, b) => b.score - a.score)
+              .map((player, index) => {
+                const medals = ['🥇', '🥈', '🥉'];
+                const medal = medals[index] || '';
+
+                return (
+                  <li key={index}>
+                    {medal} {player.name}: {player.score} pontos
+                  </li>
+                );
+              })}
+          </ul>
         </div>
-      )}
-
-      <div className="quiz-score-section">
-        <h2>Ranking</h2>
-        <ul className="quiz-score-list">
-          {scores.map((score, idx) => (
-            <li key={idx}>
-              {playerNames[idx] || `Jogador ${idx + 1}`}: {score} pontos
-            </li>
-          ))}
-        </ul>
       </div>
     </main>
   );

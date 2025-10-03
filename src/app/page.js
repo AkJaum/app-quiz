@@ -40,12 +40,8 @@ export default function Home() {
   return (
     <div className="home-bg">
       <div className="home-container">
-        <button onClick={popup} className="start-button">
-          Começar Quiz
-        </button>
       </div>
 
-      {visivel && (
         <div className="popup-overlay">
           <div className="popup-box">
             <h1 className="popup-title">Configuração do Quiz</h1>
@@ -80,7 +76,6 @@ export default function Home() {
             </button>
           </div>
         </div>
-      )}
     </div>
   );
 }

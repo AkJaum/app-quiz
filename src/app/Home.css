@@ -1,7 +1,7 @@
 /* Home.css */
 
 .home-bg {
-  background-image: url('/Imagens/sim.jpeg');
+  background-image: url('/Imagens/betolinhasnapraia.jpeg');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -18,7 +18,7 @@
 }
 
 .start-button {
-  background-color: #1d4ed8; /* Azul tailwind */
+  background-color: rgba(29, 79, 216, 0.774); /* Azul tailwind */
   border-radius: 1rem;
   padding: 1.5rem;
   color: white;
@@ -45,7 +45,7 @@
 }
 
 .popup-box {
-  background-color: #1d4ed8;
+  background-color: #1d4fd8;
   color: white;
   padding: 2rem;
   border-radius: 1.5rem;
@@ -91,7 +91,7 @@
 }
 
 .popup-start-button {
-  background-color: #16a34a; /* Verde */
+  background-color: #16a34ad3; /* Verde */
   padding: 0.5rem 1rem;
   border-radius: 0.75rem;
   font-weight: bold;
@@ -102,6 +102,6 @@
 }
 
 .popup-start-button:hover {
-  background-color: #15803d;
+  background-color: rgb(21, 128, 60);
   transform: scale(1.1);
 }
